@@ -1,0 +1,23 @@
+page-profile {
+  .profile-picture {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 100%;
+    //-webkit-box-sizing: content-box;
+    //-moz-box-sizing: content-box;
+    //box-sizing: content-box;
+    margin: 0 auto;
+    width: 115px;
+    height: 115px;
+    overflow: hidden;
+  }
+
+  .profile-info{
+    padding: 20px 10px 10px 20px;
+  }
+
+  .friend-button-icon{
+    font-size: 2em;
+    padding: 10px;
+  }
+}
+

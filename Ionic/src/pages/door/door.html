@@ -1,0 +1,46 @@
+<!--
+  Generated template for the DoorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Open Door</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="manageDoor()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>{{ 'Location' }}</ion-label>
+        <ion-input type="text" [(ngModel)]="door.availability.location" name="location" required></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label stacked>{{ 'Activity' }}</ion-label>
+        <ion-select [(ngModel)]="door.availability.activity" name="activity" interface="popover">
+          <ion-option *ngFor="let a of activities" value="{{a}}">{{a}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <div padding>
+
+        <button ion-button color="primary" block type="submit" *ngIf="!doorIsOpen()">{{ 'Open Door' }}</button>
+
+        <button ion-button color="primary" block type="submit" *ngIf="doorIsOpen()">{{ 'Update Door' }}</button>
+
+        <br>
+      </div>
+
+
+    </ion-list>
+  </form>
+  <button ion-button color="danger" *ngIf="doorIsOpen()" block (click)="closeDoor()">{{ 'Close Door' }}</button>
+</ion-content>

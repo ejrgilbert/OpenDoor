@@ -1,2 +1,2 @@
-# OpenDoor
-The greatest app of all time. Soon to be in an App Store near you.
+# Open Door
+Entrepreneur project for CSC 492.

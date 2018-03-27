@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openProfile()" x-large>
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    [showCancelButton]="shouldShowCancel"
+     placeholder="Search available friends"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+
+  <h4>Available Friends</h4>
+  <hr>
+  <div *ngIf="hasFriends()">
+    <ion-list>
+      <button ion-item *ngFor="let friend of filteredFriends" (click)="itemTapped(friend)">
+        <ion-avatar item-left>
+          <img [src]="getProfilePicture(friend)"/>
+        </ion-avatar>
+        {{friend.firstName}} {{friend.lastName}}
+      </button>
+    </ion-list>
+  </div>
+
+  <!-- TODO add in when no friends are available -->
+
+  <button ion-button (click)="manageDoor()" *ngIf="!isOpen()" large block>Open Door</button>
+
+  <button ion-button (click)="manageDoor()" *ngIf="isOpen()" large block>Manage Door</button>
+
+</ion-content>
